@@ -92,10 +92,26 @@ export default function SmartScene() {
           className="absolute inset-0 w-full h-full object-cover pointer-events-none z-20"
           style={{
             mixBlendMode: 'screen',
-            opacity: 0.6,
+            opacity: 1,
           }}
         >
           <source src="https://res.cloudinary.com/dnzhewrrx/video/upload/v1773827579/Birds_Flying_Black_Screen_blackscreen_birds_India_apaavs.mp4" type="video/mp4" />
+        </video>
+      )}
+
+      {isNight && (
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none z-20"
+          style={{
+            mixBlendMode: 'screen',
+            opacity: 5,
+          }}
+        >
+          <source src="https://res.cloudinary.com/dnzhewrrx/video/upload/v1773828503/Black_screen_Star_Particle_night_stars_Particle_Light_Effect_e7nokp.mp4" type="video/mp4" />
         </video>
       )}
 
