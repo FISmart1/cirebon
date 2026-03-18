@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { MapPin, Compass, Calendar } from 'lucide-react';
 import SmartSky from '@/components/SmartSky';
 import AboutCirebon from '@/components/AboutCirebon';
+import Navbar from '@/components/Navbar';
 
 type Weather = {
   main: { temp: number };
@@ -45,32 +46,7 @@ export default function Home() {
       {/* BACKGROUND SKY */}
 
       {/* NAVBAR */}
-      <nav className={`relative z-20 w-full flex items-center justify-around px-6 md:px-8 py-5 backdrop-blur-md border-b transition bg-white text-black`}>
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#1E3A8A] to-[#3B82F6]" />
-          <span className="font-semibold text-lg">Cirebon Digital City</span>
-        </div>
-
-        <div className="hidden md:flex gap-8 text-sm font-medium">
-          <a href="#" className="hover:text-blue-600">
-            Explore
-          </a>
-          <a href="#" className="hover:text-blue-600">
-            Culture
-          </a>
-          <a href="#" className="hover:text-blue-600">
-            Culinary
-          </a>
-          <a href="#" className="hover:text-blue-600">
-            UMKM
-          </a>
-          <a href="#" className="hover:text-blue-600">
-            Events
-          </a>
-        </div>
-
-        
-      </nav>
+      <Navbar/>
 
       {/* HERO */}
       <section className="relative min-h-screen overflow-hidden flex items-center justify-center">
