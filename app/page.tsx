@@ -88,7 +88,7 @@ export default function Home() {
       {/* HERO */}
       <section className="relative min-h-screen overflow-hidden flex items-center justify-center">
         {/* SKY BACKGROUND */}
-        <SmartSky />
+        <SmartSky weather={weather?.weather[0].main} />
 
         {/* OVERLAY */}
 

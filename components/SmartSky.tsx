@@ -2,26 +2,17 @@
 
 import { useEffect, useState } from 'react';
 
-export default function SmartScene() {
+type Props = {
+  weather?: string;
+};
+
+export default function SmartScene({ weather }: Props) {
   const [hour, setHour] = useState<number | null>(null);
   const [drag, setDrag] = useState(false);
   const [position, setPosition] = useState(50); // persen
-  const [weather, setWeather] = useState<string | null>(null);
 
   useEffect(() => {
     setHour(new Date().getHours());
-
-    async function getWeather() {
-      try {
-        const res = await fetch('https://api.openweathermap.org/data/2.5/weather?q=Cirebon&units=metric&appid=1fbc2ce1b8cd30171b2083e4d647bd67');
-        const data = await res.json();
-        setWeather(data.weather[0].main.toLowerCase());
-      } catch (err) {
-        console.log(err);
-      }
-    }
-
-    getWeather();
   }, []);
 
   function handleMove(e: React.MouseEvent<HTMLDivElement>) {
@@ -31,9 +22,11 @@ export default function SmartScene() {
     setPosition(Math.max(0, Math.min(100, percent)));
   }
 
+  const weatherMain = weather?.toLowerCase() || '';
+
   if (hour === null) return null;
-  const isRain = weather?.includes('rain');
-  const isThunder = weather?.includes('thunderstorm');
+  const isRain = weatherMain.includes('rain');
+  const isThunder = weatherMain.includes('thunderstorm');
   const isMorning = hour >= 6 && hour < 10;
   const isDay = hour >= 10 && hour < 16;
   const isEvening = hour >= 16 && hour < 18;
