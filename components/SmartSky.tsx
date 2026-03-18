@@ -7,7 +7,6 @@ export default function SmartScene() {
   const [drag, setDrag] = useState(false);
   const [position, setPosition] = useState(50); // persen
   const [weather, setWeather] = useState<string | null>(null);
-  
 
   useEffect(() => {
     setHour(new Date().getHours());
@@ -41,7 +40,7 @@ export default function SmartScene() {
   const isNight = hour >= 18 || hour < 6;
 
   // 2 gambar per waktu
-  const scene = isMorning ? ['/scene/morning1.png', '/scene/morning2.png'] : isDay ? ['/scene/day1.png', '/scene/day2.png'] : isEvening ? ['/scene/evening1.png', '/scene/evening2.png'] : ['/scene/night1.png', '/scene/night2.png'];
+  const scene = isMorning ? ['/scene/morning1.webp', '/scene/morning2.webp'] : isDay ? ['/scene/day1.webp', '/scene/day2.webp'] : isEvening ? ['/scene/evening1.webp', '/scene/evening2.webp'] : ['/scene/night1.webp', '/scene/night2.webp'];
 
   return (
     <div className="absolute inset-0 overflow-hidden cursor-ew-resize" onMouseDown={() => setDrag(true)} onMouseUp={() => setDrag(false)} onMouseMove={handleMove}>
@@ -77,8 +76,6 @@ export default function SmartScene() {
         </video>
       )}
 
-      
-
       {/* LINE DIVIDER */}
       <div className="absolute top-0 bottom-0 w-[2px] bg-white/70 shadow-lg" style={{ left: `${position}%` }} />
 
@@ -86,7 +83,21 @@ export default function SmartScene() {
       {isDay && <div className="absolute top-0 left-1/3 w-[600px] h-[600px] bg-yellow-300 opacity-20 blur-[160px] animate-pulse" />}
 
       {/* SUNSET */}
-      {isEvening && <div className="absolute inset-0 bg-gradient-to-t from-orange-500/40 to-transparent" />}
+      {isEvening && (
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none z-20"
+          style={{
+            mixBlendMode: 'screen',
+            opacity: 0.6,
+          }}
+        >
+          <source src="https://res.cloudinary.com/dnzhewrrx/video/upload/v1773827579/Birds_Flying_Black_Screen_blackscreen_birds_India_apaavs.mp4" type="video/mp4" />
+        </video>
+      )}
 
       {/* MOUNTAIN */}
       <img
