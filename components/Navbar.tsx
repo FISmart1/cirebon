@@ -18,7 +18,7 @@ export default function Navbar() {
           />
 
           {/* TEXT HILANG DI HP */}
-          <span className="md:block font-semibold text-lg">Cirebon Digital City</span>
+          <span className="md:block font-semibold text-lg">Cirebon City</span>
         </div>
 
         {/* DESKTOP MENU */}
