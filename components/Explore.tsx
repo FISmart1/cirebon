@@ -47,7 +47,7 @@ export default function Explore() {
           </h2>
 
           <button className="mt-6 px-6 py-3 rounded-full border border-white/50 hover:bg-white hover:text-black transition">
-            Read More
+            Jelajahi
           </button>
         </div>
 
