@@ -5,6 +5,8 @@ import { MapPin, Compass, Calendar } from 'lucide-react';
 import SmartSky from '@/components/SmartSky';
 import AboutCirebon from '@/components/AboutCirebon';
 import Navbar from '@/components/Navbar';
+import Hal from '@/components/Hal';
+import ExploreSection from '@/components/Explore';
 
 type Weather = {
   main: { temp: number };
@@ -131,6 +133,8 @@ export default function Home() {
         </div>
       </section>
       <AboutCirebon />
+      <Hal/>
+      <ExploreSection/>
     </div>
   );
 }
